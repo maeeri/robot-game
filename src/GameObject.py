@@ -2,12 +2,12 @@ import pygame
 from random import randint
 
 class GameObject:
-    def __init__(self, name: str, nayton_lev: int, nayton_kork: int) -> None:
+    def __init__(self, name: str, screen_width: int, screen_height: int) -> None:
         self.image = pygame.image.load("img/" + name + ".png")
         self.width = self.image.get_width()
         self.height = self.image.get_height()
-        self.max_x = nayton_lev - self.width
-        self.max_y = nayton_kork - self.height
+        self.max_x = screen_width - self.width
+        self.max_y = screen_height - self.height
         self.x = randint(0, self.max_x)
         self.y = randint(0, self.max_y)
         self.center_x = self.x + (self.width/2)
@@ -24,8 +24,8 @@ class Coin(GameObject):
         self.center_y = self.y + (self.height/2)
 
 class Robot(GameObject):
-    def __init__(self, nayton_lev: int, nayton_kork: int) -> None:
-        super().__init__("robo", nayton_lev, nayton_kork)
+    def __init__(self, screen_width: int, screen_height: int) -> None:
+        super().__init__("robo", screen_width, screen_height)
         self.move_up = False
         self.move_down = False
         self.move_right = False
@@ -73,19 +73,19 @@ class Monster(GameObject):
         self.x_speed = 1 if self.horizontal else 0
         self.y_speed = 1 if self.vertical else 0
 
-    def monster_movement(self, robotti: Robot):
+    def monster_movement(self, robot: Robot):
         if self.follow_robot:
-            if self.x > robotti.x:
+            if self.x > robot.x:
                 self.x_speed = -1
-            if self.x < robotti.x:
+            if self.x < robot.x:
                 self.x_speed = 1
-            if self.x == robotti.x:
+            if self.x == robot.x:
                 self.x_speed = 0
-            if self.y > robotti.y:
+            if self.y > robot.y:
                 self.y_speed = -1
-            if self.y < robotti.y:
+            if self.y < robot.y:
                 self.y_speed = 1
-            if self.y == robotti.y:
+            if self.y == robot.y:
                 self.y_speed = 0
         if self.horizontal:
             if self.x == 0:
@@ -98,8 +98,8 @@ class Monster(GameObject):
             if self.y == self.max_y:
                 self.y_speed = -1
     
-    def move_monster(self, robotti: Robot):
-        self.monster_movement(robotti)
+    def move_monster(self, robot: Robot):
+        self.monster_movement(robot)
         self.x += self.x_speed
         self.y += self.y_speed
 

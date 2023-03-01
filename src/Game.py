@@ -32,7 +32,7 @@ class Game:
         self.robot = Robot(self.screen_width, self.screen_height)
         self.dance = Dance("robo", 22, self.screen_width/2 - 20, 350)
 
-        pygame.display.set_caption("Öljynvaihto")
+        pygame.display.set_caption("Oil change")
         self.loop()
 
     def draw_display(self):
@@ -113,8 +113,8 @@ class Game:
         self.points_display()
         title_font = pygame.font.SysFont("Arial", 50)
         body_font = pygame.font.SysFont("Arial", 20)
-        title = title_font.render("HÄVISIT :'(", True, ((255, 0, 0)))
-        line = body_font.render("Palaa alkuun painamalla 'Enter'", True, ((255,255,255)))
+        title = title_font.render("GAME OVER :'(", True, ((255, 0, 0)))
+        line = body_font.render("Return to start screen by pressing 'Enter'", True, ((255,255,255)))
         self.screen.blit(title, ((self.screen_width - title.get_width())/2, (self.screen_height - title.get_height())/2 - 20))
         self.screen.blit(line, ((self.screen_width - line.get_width())/2, (self.screen_height - title.get_height())/2  + 40))
 
@@ -144,10 +144,10 @@ class Game:
         self.points_display()
         title_font = pygame.font.SysFont("Arial", 50)
         body_font = pygame.font.SysFont("Arial", 20)
-        title = title_font.render("VOITIT!!!", True, ((255, 0, 0)))
+        title = title_font.render("YOU WON!!!", True, ((255, 0, 0)))
         self.screen.blit(title, ((self.screen_width - title.get_width())/2, (self.screen_height - title.get_height())/2-40))
 
-        line = body_font.render("Palaa alkuun painamalla 'Enter'", True, ((255,255,255)))
+        line = body_font.render("Return to start screen by pressing 'Enter'", True, ((255,255,255)))
         self.screen.blit(line, ((self.screen_width - line.get_width())/2, (self.screen_height - title.get_height())/2 + 40))
 
         self.screen.blit(self.dance.image, (self.dance.x, self.dance.y))
@@ -162,10 +162,10 @@ class Game:
         body_font = pygame.font.SysFont("Arial", 20)
 
         contents = [
-            "Roboduden öljy kaipaa vaihtoa, mutta rahat ovat vähissä :(",
-            "Tehtäväsi on kerätä Robodudelle 20 kolikkoa ja vältellä öljyhirviöitä",
-            "Liikuta Robodudea nuolinäppäimillä",
-            "Aloita peli painamalla 'Enter'"
+            "Robodude needs an oil change, but is low on cash :(",
+            "Your task is to help Robodude collect 20 coins while avoiding oil monsters",
+            "Move Robodude with your arrow keys",
+            "Start the game by pressing 'Enter'"
         ]
 
         for i in range(len(contents)):
@@ -175,7 +175,7 @@ class Game:
         robo = pygame.image.load("img/robo.png")
         self.screen.blit(robo, ((self.screen_width - robo.get_width())/2, 340))
 
-        title = title_font.render("Öljynvaihto", True, ((255, 0, 0)))
+        title = title_font.render("Oil change", True, ((255, 0, 0)))
         self.screen.blit(title, ((self.screen_width - title.get_width())/2, 150))
 
         pygame.display.flip()
@@ -186,7 +186,7 @@ class Game:
     def points_display(self):
         pygame.draw.rect(self.screen, (0,0,0), pygame.Rect(self.screen_width - 140, 10, 130, 70))
         font = pygame.font.SysFont("Arial", 24)
-        point_text = font.render(f"Kolikot: {self.points}/20", True, (255, 0, 0))
-        life_text = font.render(f"Elämät: {self.lives}", True, (255, 0, 0))
+        point_text = font.render(f"Coins: {self.points}/20", True, (255, 0, 0))
+        life_text = font.render(f"Lives: {self.lives}", True, (255, 0, 0))
         self.screen.blit(point_text, (self.screen_width - 130, 15))
         self.screen.blit(life_text, (self.screen_width - 130, 40))
