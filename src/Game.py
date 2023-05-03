@@ -72,9 +72,9 @@ class Game:
         coin_sound = pygame.mixer.Sound("sound/coin.mp3")
         victory_sound = pygame.mixer.Sound("sound/victory.wav")
         for k in self.coins:
-            ehto_x = abs(k.center_x - self.robot.center_x) <= (k.width + self.robot.width)/2
-            ehto_y = abs(k.center_y - self.robot.center_y) <= (k.height + self.robot.height)/2
-            if ehto_x and ehto_y:
+            condition_x = abs(k.center_x - self.robot.center_x) <= (k.width + self.robot.width)/2
+            condition_y = abs(k.center_y - self.robot.center_y) <= (k.height + self.robot.height)/2
+            if condition_x and condition_y:
                 k.random_coin_placement()
                 pygame.mixer.Sound.play(coin_sound)
                 self.points += 1
