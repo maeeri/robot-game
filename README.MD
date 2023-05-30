@@ -2,6 +2,11 @@ Game project initially made for https://ohjelmointi-23.mooc.fi/
 
 Images taken from said course material
 
+### Requirements to run
+
+        Python3
+        Pygame
+
 Sound effects from https://freesound.org/
 
         https://freesound.org/people/sonically_sound/sounds/624878/

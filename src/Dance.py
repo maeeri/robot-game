@@ -1,15 +1,22 @@
 import pygame
+import os
+
+global dirname
+dirname = os.path.dirname(__file__)
+
 
 class Dance:
     def __init__(self, name: str, angle: int, x: int, y: int) -> None:
-        self.imageCreature = pygame.image.load("img/" + name + ".png").convert()
+        self.imageCreature = pygame.image.load(
+            os.path.join(dirname, "img/" + name + ".png")
+        ).convert()
         self.image = self.imageCreature
         self.rect = self.image.get_rect()
         self.angle = angle
         self.x = x
         self.y = y
         self.rect.center = (self.x, self.y)
-        
+
         self.speed = 1
         self.turn = True
 
@@ -21,9 +28,9 @@ class Dance:
 
     def animate(self):
         self.update()
-        if self.turn: 
+        if self.turn:
             self.angle -= 45
             self.turn = False
-        else: 
+        else:
             self.angle += 45
             self.turn = True
