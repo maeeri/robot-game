@@ -15,7 +15,6 @@ Sound effects from https://freesound.org/
         https://freesound.org/people/GameAudio/sounds/220203/
 
 ![image](https://github.com/maeeri/RobotGame/assets/107042762/4b6ce1d7-05f4-4db6-9600-b54ce9836dc2)
-![image](https://github.com/maeeri/RobotGame/assets/107042762/b5f8f290-3779-482f-a271-b3770bb074fc)
 ![image](https://github.com/maeeri/RobotGame/assets/107042762/d4bec095-dc4b-4306-9b95-64432d3bab20)
 ![image](https://github.com/maeeri/RobotGame/assets/107042762/5b99220c-8388-4b1b-b3b3-b1bd7cd17232)
 ![image](https://github.com/maeeri/RobotGame/assets/107042762/7d1a02d2-22a3-4bd5-b4b0-b061a8e316b8)
